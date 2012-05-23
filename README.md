@@ -1,8 +1,6 @@
-# duration - Missing extension to JavaScript's Date object
+# duration - Useful methods for working with time duration in JavaScript
 
-Useful methods for handling time duration in JavaScript
-
-_It was part of [es5-ext](https://github.com/medikoo/es5-ext) project, now it's individual package._
+_It was part of [es5-ext](https://github.com/medikoo/es5-ext) project, now it's an individual package._
 
 ## Installation
 
