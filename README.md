@@ -65,8 +65,7 @@ Custom string representation:  H: 89283 m: 23
 ## Duration(from[, to])
 
 Main module is both constructor and factory method, and can be used either way.  
-`from` and `to` are expected to be JavaScript Date objects, while `to` is optional.
-If `to` is not provided it defaults to current time.
+`from` and `to` are expected to be JavaScript Date objects. `to` is optional, and if not provided it defaults to current time.
 
 ## Duration.prototype properties
 
