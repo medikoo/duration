@@ -1,4 +1,4 @@
-# duration - Useful methods for working with time duration in JavaScript
+# duration - Useful methods for working with time duration
 
 _It was part of [es5-ext](https://github.com/medikoo/es5-ext) project, now it's an individual package._
 
