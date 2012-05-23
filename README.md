@@ -40,3 +40,24 @@ console.log("Alternative string representation: ", duration.toString(1));
 console.log("Custom string representation: ",
 	duration.toString("H: %Hs m: %M"));
 ```
+
+Returns:
+
+```
+Years:  10
+Months:  122
+Days:  3720
+Hours:  89283
+Minutes:  5357003
+Seconds:  321420188
+Milliseconds:  321420188456
+Trailing months:  2
+Trailing days:  6
+Trailing hours:  3
+Trailing minutes:  23
+Trailing seconds:  8
+Trailing milliseconds:  456
+Default string representation:  10y 2m 6d 03:23:08.456
+Alternative string representation:  10y 2m 6d 3h 23m 8s 456ms
+Custom string representation:  H: 89283 m: 23
+```
