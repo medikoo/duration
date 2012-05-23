@@ -1,6 +1,6 @@
 # duration - Useful methods for working with time duration
 
-_It was part of [es5-ext](https://github.com/medikoo/es5-ext) project, now it's an individual package._
+_Formerly part of [es5-ext](https://github.com/medikoo/es5-ext) project._
 
 ## Installation
 
