@@ -10,7 +10,7 @@ _Formerly part of [es5-ext](https://github.com/medikoo/es5-ext) project._
 
 ### Browser
 
-You can easily create browser bundle with help of [modules-webmake](https://github.com/medikoo/modules-webmake)
+Can be bundled for browser with help of [modules-webmake](https://github.com/medikoo/modules-webmake)
 
 ## Example usage:
 
