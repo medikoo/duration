@@ -62,7 +62,7 @@ Custom string representation:  H: 89283 m: 23
 
 ## Duration(from[, to])
 
-Main module is both constructor and factory method, and can be used either way.
+Main module is both constructor and factory method, and can be used either way.  
 `from` and `to` are expected to be JavaScript Date objects, while `to` is optional.
 If `to` is not provided it defaults to current time.
 
@@ -128,9 +128,9 @@ Returns trailing seconds of the duration
 
 Same as `milliseconds`. Returns milliseconds of the duration
 
-## toString([mode|format])
+## toString([ mode | format ])
 
-Return readable representation of the duration.  
+Returns readable representation of the duration.  
 When invoked without arguments, returns as:
 
 	10y 2m 6d 03:23:08.456
