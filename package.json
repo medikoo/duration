@@ -1,0 +1,28 @@
+{
+  "author": "Mariusz Nowak <medikoo+duration@medikoo.com> (http://www.medikoo.com/)",
+  "name": "duration",
+  "description": "All you need to handle duration between two dates",
+  "keywords": [
+    "date",
+    "duration",
+    "time"
+  ],
+  "version": "0.1.0",
+  "repository": {
+    "url": "git://github.com/medikoo/duration.git"
+  },
+  "main": "lib",
+  "scripts": {
+    "test": "node ./node_modules/tad/bin/tad lib"
+  },
+  "dependencies": {
+    "es5-ext": "git://github.com/medikoo/es5-ext.git"
+  },
+  "devDependencies": {
+    "tad": "0.1.x"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">=0.4"
+  }
+}
