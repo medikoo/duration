@@ -6,7 +6,7 @@ _Formerly part of [es5-ext](https://github.com/medikoo/es5-ext) project._
 
 To use it with node.js:
 
-	$ npm install duration
+	$ npm install git://github.com/medikoo/duration.git
 
 You can easily create browser bundle with help of [modules-webmake](https://github.com/medikoo/modules-webmake)
 
