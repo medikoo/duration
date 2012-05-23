@@ -41,7 +41,7 @@ console.log("Custom string representation: ",
 	duration.toString("H: %Hs m: %M"));
 ```
 
-Returns:
+Output:
 
 ```
 Years:  10
