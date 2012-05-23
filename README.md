@@ -1,12 +1,14 @@
-# duration - Provides detailed info about given time duration and user friendly string output
+# duration - Time duration utilities
 
 _Formerly part of [es5-ext](https://github.com/medikoo/es5-ext) project._
 
 ## Installation
 
-To use it with node.js:
+### Node.js
 
 	$ npm install git://github.com/medikoo/duration.git
+
+### Browser
 
 You can easily create browser bundle with help of [modules-webmake](https://github.com/medikoo/modules-webmake)
 
