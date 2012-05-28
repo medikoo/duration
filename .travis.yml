@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - 0.6
+
+before_script:
+  - ln -s ../ node_modules/duration
+
+notifications:
+  email:
+    - medikoo+duration@medikoo.com
