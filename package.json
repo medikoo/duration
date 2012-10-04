@@ -11,7 +11,7 @@
   "repository": {
     "url": "git://github.com/medikoo/duration.git"
   },
-  "main": "lib",
+  "main": "lib/duration",
   "scripts": {
     "test": "node ./node_modules/tad/bin/tad lib"
   },
