@@ -2,12 +2,12 @@
 
 var copy = require('es5-ext/lib/Date/prototype/copy');
 
-module.exports = function (t, a) {
+module.exports = function (t) {
 	var d1 = new Date(Date.UTC(2001, 1, 2, 1, 1, 1, 1)), d, d2;
 
 	return {
 		"Second date is optional": function (a) {
-			var d3, dr2, dr3, m;
+			var d3, m;
 			d2 = new Date();
 			d = t(d1);
 			d3 = new Date();
@@ -100,8 +100,8 @@ module.exports = function (t, a) {
 			a(d.toString(), '07:12.123', 'String presentation');
 			a(d.toString(1), '7m 12s 123ms', 'String presentation #2');
 			a(d.toString(' %L.%Ls.%S.%Ss.%M.%Ms.%H.%Hs.%d.%ds.%m.%ms.%y '),
-				' 123.' + (7 * 60 * 1000 + 12 * 1000 + 123) + '.12.' + (7 * 60 + 12)
-				+ '.07.7.00.0.00.0.00.0.0 ', 'String presentation (custom)');
+				' 123.' + (7 * 60 * 1000 + 12 * 1000 + 123) + '.12.' + (7 * 60 + 12) +
+				'.07.7.00.0.00.0.00.0.0 ', 'String presentation (custom)');
 		},
 		"Hours": function (a) {
 			// 4 hours 7 minutes 12 seconds 123 milliseconds
@@ -171,8 +171,8 @@ module.exports = function (t, a) {
 			a(d.toString(' %L.%Ls.%S.%Ss.%M.%Ms.%H.%Hs.%d.%ds.%m.%ms.%y '),
 				' 123.' + (2 * 24 * 60 * 60 * 1000 + 14 * 60 * 60 * 1000 +
 					7 * 60 * 1000 + 12 * 1000 + 123) + '.12.' +
-				(2 * 24 * 60 * 60 + 14 * 60 * 60 + 7 * 60 + 12) + '.07.'
-				+ (2 * 24 * 60 + 14 * 60 + 7) + '.14.' + (2 * 24 + 14) +
+				(2 * 24 * 60 * 60 + 14 * 60 * 60 + 7 * 60 + 12) + '.07.' +
+				(2 * 24 * 60 + 14 * 60 + 7) + '.14.' + (2 * 24 + 14) +
 				'.02.2.00.0.0 ', 'String presentation (custom)');
 		},
 		"Large duration": function (a) {
