@@ -155,6 +155,7 @@ When invoked with string, formats the duration according to given string format,
 * `%Ms` - `duration.minutes`
 * `%Ss` - `duration.seconds`
 * `%Ls` - `duration.milliseconds`
+* `%sign` - If duration is negative outputs `-` otherwise empty string
 
 ## Tests [![Build Status](https://secure.travis-ci.org/medikoo/duration.png?branch=master)](https://secure.travis-ci.org/medikoo/es5-ext)
 
