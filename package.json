@@ -1,7 +1,7 @@
 {
   "author": "Mariusz Nowak <medikoo+duration@medikoo.com> (http://www.medikoo.com/)",
   "name": "duration",
-  "description": "Useful methods for working with time duration in JavaScript",
+  "description": "Time duration utilities",
   "keywords": [
     "date",
     "duration",
