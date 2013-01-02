@@ -6,7 +6,7 @@ _Formerly part of [es5-ext](https://github.com/medikoo/es5-ext) project._
 
 ### Node.js
 
-	$ npm install git://github.com/medikoo/duration.git
+	$ npm install duration
 
 ### Browser
 
