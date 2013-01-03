@@ -130,7 +130,6 @@ Returns trailing seconds of the duration
 Same as `milliseconds`. Returns milliseconds of the duration
 
 ## toString([mode[, threshold]])
-## toString(format)
 
 Returns readable representation of the duration.  
 When invoked without arguments (defaults to _mode=0_), returns as:
@@ -153,7 +152,9 @@ duration.toString(1, 1); // 10y 2m 6d 3h 23m 8s
 duration.toString(1, 2); // 10y 2m 6d 3h 23m
 ```
 
-When invoked with string, formats the duration according to given string format, where:
+## toString(format)
+
+When invoked with string, formats the duration according to given pattern, where:
 
 * `%y` - `duration.year`
 * `%m` - `duration.month`
