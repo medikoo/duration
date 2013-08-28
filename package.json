@@ -16,7 +16,7 @@
     "test": "node ./node_modules/tad/bin/tad lib"
   },
   "dependencies": {
-    "es5-ext": "~0.9.1"
+    "es5-ext": "git://github.com/medikoo/es5-ext.git"
   },
   "devDependencies": {
     "tad": "~0.1.12"

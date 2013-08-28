@@ -1,6 +1,6 @@
 'use strict';
 
-var copy = require('es5-ext/lib/Date/prototype/copy');
+var copy = require('es5-ext/date/#/copy');
 
 module.exports = function (t) {
 	var d1 = new Date(Date.UTC(2001, 1, 2, 1, 1, 1, 1)), d, d2;
