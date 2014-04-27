@@ -1,29 +1,25 @@
 {
-  "author": "Mariusz Nowak <medikoo+duration@medikoo.com> (http://www.medikoo.com/)",
   "name": "duration",
+  "version": "0.2.0",
   "description": "Time duration utilities",
+  "author": "Mariusz Nowak <medyk@medikoo.com> (http://www.medikoo.com/)",
   "keywords": [
     "date",
     "duration",
     "time"
   ],
-  "version": "0.1.4",
   "repository": {
+    "type": "git",
     "url": "git://github.com/medikoo/duration.git"
   },
-  "main": "lib/duration",
-  "scripts": {
-    "test": "node ./node_modules/tad/bin/tad lib"
-  },
   "dependencies": {
-    "d": "git://github.com/medikoo/d.git",
-    "es5-ext": "git://github.com/medikoo/es5-ext.git"
+    "d": "~0.1.1",
+    "es5-ext": "~0.10.2"
   },
   "devDependencies": {
-    "tad": "~0.1.12"
+    "tad": "~0.1.21"
   },
-  "optionalDependencies": {},
-  "engines": {
-    "node": ">=0.4"
+  "scripts": {
+    "test": "node ./node_modules/tad/bin/tad"
   }
 }
