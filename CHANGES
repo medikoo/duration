@@ -1,3 +1,8 @@
+v0.2.0  --  2014.04.27
+* Move main module from lib/duration.js to index.js
+* Remove Makefile (it's cross environment package)
+* Update to use latest versions of dependencies
+
 v0.1.4  --  2013.01.03
 * Threshold option for default toString modes
 
