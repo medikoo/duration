@@ -14,7 +14,7 @@ module.exports = function (t) {
 			a.ok(((m = d.milliseconds) >= t(d1, d2).milliseconds) &&
 				(m <= t(d1, d3).milliseconds));
 		},
-		"Milliseconds": function (a) {
+		Milliseconds: function (a) {
 			// 11 milliseconds
 			d2 = copy.call(d1);
 			d2.setMilliseconds(d2.getMilliseconds() + 11);
@@ -107,7 +107,7 @@ module.exports = function (t) {
 				' -.011.11.00.0.00.0.00.0.00.0.00.0.0 ',
 				"String presentation (custom): Negative");
 		},
-		"Seconds": function (a) {
+		Seconds: function (a) {
 			// 7 seconds 123 milliseconds
 			d2 = copy.call(d1);
 			d2.setMilliseconds(d2.getMilliseconds() + 123);
@@ -202,7 +202,7 @@ module.exports = function (t) {
 				' -.123.' + (7 * 1000 + 123) + '.07.7.00.0.00.0.00.0.00.0.0 ',
 				"String presentation (custom): Negative");
 		},
-		"Minutes": function (a) {
+		Minutes: function (a) {
 			// 7 minutes 12 seconds 123 milliseconds
 			d2 = copy.call(d1);
 			d2.setMilliseconds(d2.getMilliseconds() + 123);
@@ -300,7 +300,7 @@ module.exports = function (t) {
 				' -.123.' + (7 * 60 * 1000 + 12 * 1000 + 123) + '.12.' + (7 * 60 + 12) +
 				'.07.7.00.0.00.0.00.0.0 ', "String presentation (custom): Negative");
 		},
-		"Hours": function (a) {
+		Hours: function (a) {
 			// 4 hours 7 minutes 12 seconds 123 milliseconds
 			d2 = copy.call(d1);
 			d2.setMilliseconds(d2.getMilliseconds() + 123);
@@ -405,7 +405,7 @@ module.exports = function (t) {
 				'.12.' + (4 * 60 * 60 + 7 * 60 + 12) + '.07.' + (4 * 60 + 7) +
 				'.04.4.00.0.00.0.0 ', "String presentation (custom): Negative");
 		},
-		"Days": function (a) {
+		Days: function (a) {
 			// 2 days 14 hours 7 minutes 12 seconds 123 milliseconds
 			d2 = copy.call(d1);
 			d2.setMilliseconds(d2.getMilliseconds() + 123);
