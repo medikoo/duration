@@ -19,7 +19,7 @@
   "devDependencies": {
     "tad": "~0.1.21",
     "xlint": "~0.2.1",
-    "xlint-jslint-medikoo": "0.1.x"
+    "xlint-jslint-medikoo": "~0.1.1"
   },
   "scripts": {
     "lint": "node node_modules/xlint/bin/xlint --linter=node_modules/xlint-jslint-medikoo/index.js --no-cache --no-stream",
