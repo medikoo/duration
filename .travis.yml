@@ -6,9 +6,6 @@ node_js:
   - 6
   - 8
 
-before_install:
-  - mkdir node_modules; ln -s ../ node_modules/duration
-
 notifications:
   email:
     - medikoo+duration@medikoo.com
