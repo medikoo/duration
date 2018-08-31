@@ -1,6 +1,6 @@
 {
   "name": "duration",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Time duration utilities",
   "author": "Mariusz Nowak <medyk@medikoo.com> (http://www.medikoo.com/)",
   "keywords": [
