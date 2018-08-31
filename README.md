@@ -6,7 +6,7 @@ _Formerly part of [es5-ext](https://github.com/medikoo/es5-ext) project._
 
 ### Node.js
 
-	$ npm install duration
+    $ npm install duration
 
 ### Browser
 
@@ -15,10 +15,9 @@ Can be bundled for browser with help of [modules-webmake](https://github.com/med
 ## Example usage:
 
 ```javascript
-var Duration = require('duration')
+var Duration = require("duration");
 
-var duration = new Duration(new Date(2000, 6, 7),
-	new Date(2010, 8, 13, 3, 23, 8, 456));
+var duration = new Duration(new Date(2000, 6, 7), new Date(2010, 8, 13, 3, 23, 8, 456));
 
 console.log("Years: ", duration.years);
 console.log("Months: ", duration.months);
@@ -37,8 +36,7 @@ console.log("Trailing milliseconds: ", duration.millisecond);
 
 console.log("Default string representation: ", duration.toString());
 console.log("Alternative string representation: ", duration.toString(1));
-console.log("Custom string representation: ",
-	duration.toString("H: %Hs m: %M"));
+console.log("Custom string representation: ", duration.toString("H: %Hs m: %M"));
 ```
 
 Output:
@@ -134,20 +132,20 @@ Same as `milliseconds`. Returns milliseconds of the duration
 Returns readable representation of the duration.  
 When invoked without arguments (defaults to _mode=0_), returns as:
 
-	10y 2m 6d 03:23:08.456
+    10y 2m 6d 03:23:08.456
 
 When invoked with mode `1`, returns alternative representation:
 
-	10y 2m 6d 3h 23m 8s 456ms
+    10y 2m 6d 3h 23m 8s 456ms
 
 Representation returned by default modes can be customized with threshold setting that trims lowest units:
 
 ```javascript
-duration.toString();     // 10y 2m 6d 03:23:08.456
+duration.toString(); // 10y 2m 6d 03:23:08.456
 duration.toString(0, 1); // 10y 2m 6d 03:23:08
 duration.toString(0, 2); // 10y 2m 6d 03:23
 
-duration.toString(1);    // 10y 2m 6d 3h 23m 8s 456ms
+duration.toString(1); // 10y 2m 6d 3h 23m 8s 456ms
 duration.toString(1, 1); // 10y 2m 6d 3h 23m 8s
 duration.toString(1, 2); // 10y 2m 6d 3h 23m
 ```
@@ -156,21 +154,21 @@ duration.toString(1, 2); // 10y 2m 6d 3h 23m
 
 When invoked with string, formats the duration according to given pattern, where:
 
-* `%y` - `duration.year`
-* `%m` - `duration.month`
-* `%d` - `duration.day`
-* `%H` - `duration.hour`
-* `%M` - `duration.minute`
-* `%S` - `duration.second`
-* `%L` - `duration.millisecond`
-* `%ms` - `duration.months`
-* `%ds` - `duration.days`
-* `%Hs` - `duration.hours`
-* `%Ms` - `duration.minutes`
-* `%Ss` - `duration.seconds`
-* `%Ls` - `duration.milliseconds`
-* `%sign` - If duration is negative outputs `-` otherwise empty string
+-   `%y` - `duration.year`
+-   `%m` - `duration.month`
+-   `%d` - `duration.day`
+-   `%H` - `duration.hour`
+-   `%M` - `duration.minute`
+-   `%S` - `duration.second`
+-   `%L` - `duration.millisecond`
+-   `%ms` - `duration.months`
+-   `%ds` - `duration.days`
+-   `%Hs` - `duration.hours`
+-   `%Ms` - `duration.minutes`
+-   `%Ss` - `duration.seconds`
+-   `%Ls` - `duration.milliseconds`
+-   `%sign` - If duration is negative outputs `-` otherwise empty string
 
 ## Tests [![Build Status](https://secure.travis-ci.org/medikoo/duration.png?branch=master)](https://secure.travis-ci.org/medikoo/es5-ext)
 
-	$ npm test
+    $ npm test
