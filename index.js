@@ -105,36 +105,36 @@ Duration.prototype = Object.create(Object.prototype, {
 	years: d.gs(getYear),
 
 	toString: d(function (pattern/*, threshold*/) {
-		var s, threshold, last;
+		var s, threshold, isNonZero;
 		if (!isValue(pattern)) pattern = 0;
 		if (isNaN(pattern)) return format.call(this, pattern);
 		pattern = Number(pattern);
 		threshold = toPosInt(arguments[1]);
 		s = "";
 		if (pattern === 1) {
-			if (threshold-- <= 0) s += abs(last = this.millisecond) + "ms";
+			if (threshold-- <= 0) s += abs(isNonZero = this.millisecond) + "ms";
 			if (this.seconds || threshold >= 0) {
 				if (threshold-- <= 0) {
-					s = abs(last = this.second) + "s" + (s ? " " : "") + s;
+					s = abs(isNonZero = this.second) + "s" + (s ? " " : "") + s;
 				}
 				if (this.minutes || threshold >= 0) {
 					if (threshold-- <= 0) {
-						s = abs(last = this.minute) + "m" + (s ? " " : "") + s;
+						s = abs(isNonZero = this.minute) + "m" + (s ? " " : "") + s;
 					}
 					if (this.hours || threshold >= 0) {
 						if (threshold-- <= 0) {
-							s = abs(last = this.hour) + "h" + (s ? " " : "") + s;
+							s = abs(isNonZero = this.hour) + "h" + (s ? " " : "") + s;
 						}
 						if (this.days || threshold >= 0) {
 							if (threshold-- <= 0) {
-								s = abs(last = this.day) + "d" + (s ? " " : "") + s;
+								s = abs(isNonZero = this.day) + "d" + (s ? " " : "") + s;
 							}
 							if (this.months || threshold >= 0) {
 								if (threshold-- <= 0) {
-									s = abs(last = this.month) + "m" + (s ? " " : "") + s;
+									s = abs(isNonZero = this.month) + "m" + (s ? " " : "") + s;
 								}
 								if (this.years || threshold >= 0) {
-									s = abs(last = this.year) + "y" + (s ? " " : "") + s;
+									s = abs(isNonZero = this.year) + "y" + (s ? " " : "") + s;
 								}
 							}
 						}
@@ -143,35 +143,35 @@ Duration.prototype = Object.create(Object.prototype, {
 			}
 		} else {
 			if (threshold-- <= 0) {
-				s += "." + pad.call(abs(last = this.millisecond), 3);
+				s += "." + pad.call(abs(isNonZero = this.millisecond), 3);
 			}
 			if (this.seconds || threshold >= 0) {
 				if (threshold-- <= 0) {
-					last = this.second;
-					s = (this.minutes ? pad.call(abs(last), 2) : abs(last)) + s;
+					isNonZero = this.second;
+					s = (this.minutes ? pad.call(abs(isNonZero), 2) : abs(isNonZero)) + s;
 				}
 				if (this.minutes || threshold >= 0) {
 					if (threshold-- <= 0) {
-						last = this.minute;
+						isNonZero = this.minute;
 						s =
-							(this.hours || s ? pad.call(abs(last), 2) : abs(last)) +
+							(this.hours || s ? pad.call(abs(isNonZero), 2) : abs(isNonZero)) +
 							(s ? ":" : "") +
 							s;
 					}
 					if (this.hours || threshold >= 0) {
 						if (threshold-- <= 0) {
-							s = pad.call(abs(last = this.hour), 2) + (s ? ":" : "") + s;
+							s = pad.call(abs(isNonZero = this.hour), 2) + (s ? ":" : "") + s;
 						}
 						if (this.days || threshold >= 0) {
 							if (threshold-- <= 0) {
-								s = abs(last = this.day) + "d" + (s ? " " : "") + s;
+								s = abs(isNonZero = this.day) + "d" + (s ? " " : "") + s;
 							}
 							if (this.months || threshold >= 0) {
 								if (threshold-- <= 0) {
-									s = abs(last = this.month) + "m" + (s ? " " : "") + s;
+									s = abs(isNonZero = this.month) + "m" + (s ? " " : "") + s;
 								}
 								if (this.years || threshold >= 0) {
-									s = abs(last = this.year) + "y" + (s ? " " : "") + s;
+									s = abs(isNonZero = this.year) + "y" + (s ? " " : "") + s;
 								}
 							}
 						}
@@ -179,7 +179,7 @@ Duration.prototype = Object.create(Object.prototype, {
 				}
 			}
 		}
-		if (last && this.to < this.from) s = "-" + s;
+		if (isNonZero && this.to < this.from) s = "-" + s;
 		return s;
 	})
 });
