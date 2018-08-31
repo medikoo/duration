@@ -1,3 +1,8 @@
+[![*nix build status][nix-build-image]][nix-build-url]
+[![Windows build status][win-build-image]][win-build-url]
+![Transpilation status][transpilation-image]
+[![npm version][npm-image]][npm-url]
+
 # duration - Time duration utilities
 
 _Formerly part of [es5-ext](https://github.com/medikoo/es5-ext) project._
@@ -169,6 +174,14 @@ When invoked with string, formats the duration according to given pattern, where
 -   `%Ls` - `duration.milliseconds`
 -   `%sign` - If duration is negative outputs `-` otherwise empty string
 
-## Tests [![Build Status](https://secure.travis-ci.org/medikoo/duration.png?branch=master)](https://secure.travis-ci.org/medikoo/es5-ext)
+## Tests
 
     $ npm test
+
+[nix-build-image]: https://semaphoreci.com/api/v1/medikoo-org/duration/branches/master/shields_badge.svg
+[nix-build-url]: https://semaphoreci.com/medikoo-org/duration
+[win-build-image]: https://ci.appveyor.com/api/projects/status/nt9c72n1ay9coree?svg=true
+[win-build-url]: https://ci.appveyor.com/project/medikoo/duration
+[transpilation-image]: https://img.shields.io/badge/transpilation-free-brightgreen.svg
+[npm-image]: https://img.shields.io/npm/v/duration.svg
+[npm-url]: https://www.npmjs.com/package/duration
