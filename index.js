@@ -12,7 +12,7 @@ var d           = require("d")
   , toPosInt    = require("es5-ext/number/to-pos-integer")
   , isValue     = require("es5-ext/object/is-value");
 
-var abs = Math.abs, format, valueOf, getYear, Duration, getCalcData;
+var abs = Math.abs, format, toPrimitive, getYear, Duration, getCalcData;
 
 format = require("es5-ext/string/format-method")({
 	y: function () { return String(abs(this.year)); },
@@ -48,7 +48,7 @@ Duration = module.exports = function (from, to) {
 };
 
 Duration.prototype = Object.create(Object.prototype, {
-	valueOf: d(valueOf = function () { return this.to - this.from; }),
+	valueOf: d(toPrimitive = function () { return this.to - this.from; }),
 	millisecond: d.gs(function () { return this.milliseconds % 1000; }),
 	second: d.gs(function () { return this.seconds % 60; }),
 	minute: d.gs(function () { return this.minutes % 60; }),
@@ -86,7 +86,7 @@ Duration.prototype = Object.create(Object.prototype, {
 		}
 	),
 
-	milliseconds: d.gs(valueOf, null),
+	milliseconds: d.gs(toPrimitive, null),
 	seconds: d.gs(function () { return toInteger(this.valueOf() / 1000); }),
 	minutes: d.gs(function () { return toInteger(this.valueOf() / (1000 * 60)); }),
 	hours: d.gs(function () { return toInteger(this.valueOf() / (1000 * 60 * 60)); }),
