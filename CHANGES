@@ -1,3 +1,5 @@
+-- For new changelog see CHANGELOG.md
+
 v0.2.0  --  2014.04.27
 * Move main module from lib/duration.js to index.js
 * Remove Makefile (it's cross environment package)
