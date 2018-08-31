@@ -27,7 +27,16 @@
     "rules": {
       "consistent-return": "off",
       "id-length": "off"
-    }
+    },
+    "overrides": [
+      {
+        "files": "test/**",
+        "rules": {
+          "max-lines": "off",
+          "max-statements": "off"
+        }
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint --ignore-path=.gitignore .",
