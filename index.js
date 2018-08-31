@@ -110,45 +110,28 @@ Duration.prototype = Object.create(Object.prototype, {
 	}),
 	_toStringDefault: d(function (threshold) {
 		var s = "", isNonZero;
+		if (threshold-- <= 0) s += "." + pad.call(abs(isNonZero = this.millisecond), 3);
+		if (!this.seconds && threshold < 0) return this._resolveSign(isNonZero) + s;
 		if (threshold-- <= 0) {
-			s += "." + pad.call(abs(isNonZero = this.millisecond), 3);
+			isNonZero = this.second;
+			s = (this.minutes ? pad.call(abs(isNonZero), 2) : abs(isNonZero)) + s;
 		}
-		if (this.seconds || threshold >= 0) {
-			if (threshold-- <= 0) {
-				isNonZero = this.second;
-				s = (this.minutes ? pad.call(abs(isNonZero), 2) : abs(isNonZero)) + s;
-			}
-			if (this.minutes || threshold >= 0) {
-				if (threshold-- <= 0) {
-					isNonZero = this.minute;
-					s =
-						(this.hours || s ? pad.call(abs(isNonZero), 2) : abs(isNonZero)) +
-						(s ? ":" : "") +
-						s;
-				}
-				if (this.hours || threshold >= 0) {
-					if (threshold-- <= 0) {
-						s = pad.call(abs(isNonZero = this.hour), 2) + (s ? ":" : "") + s;
-					}
-					if (this.days || threshold >= 0) {
-						if (threshold-- <= 0) {
-							s = abs(isNonZero = this.day) + "d" + (s ? " " : "") + s;
-						}
-						if (this.months || threshold >= 0) {
-							if (threshold-- <= 0) {
-								s = abs(isNonZero = this.month) + "m" + (s ? " " : "") + s;
-							}
-							if (this.years || threshold >= 0) {
-								s = abs(isNonZero = this.year) + "y" + (s ? " " : "") + s;
-							}
-						}
-					}
-				}
-			}
+		if (!this.minutes && threshold < 0) return this._resolveSign(isNonZero) + s;
+		if (threshold-- <= 0) {
+			isNonZero = this.minute;
+			s =
+				(this.hours || s ? pad.call(abs(isNonZero), 2) : abs(isNonZero)) +
+				(s ? ":" : "") +
+				s;
 		}
-
-		if (isNonZero && this.to < this.from) s = "-" + s;
-		return s;
+		if (!this.hours && threshold < 0) return this._resolveSign(isNonZero) + s;
+		if (threshold-- <= 0) s = pad.call(abs(isNonZero = this.hour), 2) + (s ? ":" : "") + s;
+		if (!this.days && threshold < 0) return this._resolveSign(isNonZero) + s;
+		if (threshold-- <= 0) s = abs(isNonZero = this.day) + "d" + (s ? " " : "") + s;
+		if (!this.months && threshold < 0) return this._resolveSign(isNonZero) + s;
+		if (threshold-- <= 0) s = abs(isNonZero = this.month) + "m" + (s ? " " : "") + s;
+		if (this.years || threshold >= 0) s = abs(isNonZero = this.year) + "y" + (s ? " " : "") + s;
+		return this._resolveSign(isNonZero) + s;
 	}),
 	_toString1: d(function (threshold) {
 		var tokens = [], isNonZero;
