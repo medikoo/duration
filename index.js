@@ -108,31 +108,8 @@ Duration.prototype = Object.create(Object.prototype, {
 		if (!isNonZero) return "";
 		return this.to < this.from ? "-" : "";
 	}),
-	_toString1: d(function (threshold) {
-		var tokens = [], isNonZero;
-		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.millisecond) + "ms");
-		if (!this.seconds && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
-		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.second) + "s");
-		if (!this.minutes && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
-		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.minute) + "m");
-		if (!this.hours && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
-		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.hour) + "h");
-		if (!this.days && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
-		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.day) + "d");
-		if (!this.months && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
-		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.month) + "m");
-		if (!this.years && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
-		tokens.unshift(abs(isNonZero = this.year) + "y");
-		return this._resolveSign(isNonZero) + tokens.join(" ");
-	}),
-	toString: d(function (pattern/*, threshold*/) {
-		var s, threshold, isNonZero;
-		if (!isValue(pattern)) pattern = 0;
-		if (isNaN(pattern)) return format.call(this, pattern);
-		pattern = Number(pattern);
-		threshold = toPosInt(arguments[1]);
-		s = "";
-		if (pattern === 1) return this._toString1(threshold);
+	_toStringDefault: d(function (threshold) {
+		var s = "", isNonZero;
 		if (threshold-- <= 0) {
 			s += "." + pad.call(abs(isNonZero = this.millisecond), 3);
 		}
@@ -172,5 +149,31 @@ Duration.prototype = Object.create(Object.prototype, {
 
 		if (isNonZero && this.to < this.from) s = "-" + s;
 		return s;
+	}),
+	_toString1: d(function (threshold) {
+		var tokens = [], isNonZero;
+		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.millisecond) + "ms");
+		if (!this.seconds && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.second) + "s");
+		if (!this.minutes && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.minute) + "m");
+		if (!this.hours && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.hour) + "h");
+		if (!this.days && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.day) + "d");
+		if (!this.months && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (threshold-- <= 0) tokens.unshift(abs(isNonZero = this.month) + "m");
+		if (!this.years && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		tokens.unshift(abs(isNonZero = this.year) + "y");
+		return this._resolveSign(isNonZero) + tokens.join(" ");
+	}),
+	toString: d(function (pattern/*, threshold*/) {
+		var threshold;
+		if (!isValue(pattern)) pattern = 0;
+		if (isNaN(pattern)) return format.call(this, pattern);
+		pattern = Number(pattern);
+		threshold = toPosInt(arguments[1]);
+		if (pattern === 1) return this._toString1(threshold);
+		return this._toStringDefault(threshold);
 	})
 });
