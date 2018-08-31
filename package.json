@@ -23,7 +23,11 @@
   },
   "eslintConfig": {
     "extends": "medikoo-es5",
-    "root": true
+    "root": true,
+    "rules": {
+      "consistent-return": "off",
+      "id-length": "off"
+    }
   },
   "scripts": {
     "lint": "eslint --ignore-path=.gitignore .",

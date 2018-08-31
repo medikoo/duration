@@ -9,7 +9,8 @@ var d           = require("d")
   , mfloor      = require("es5-ext/date/#/floor-month")
   , yfloor      = require("es5-ext/date/#/floor-year")
   , toInteger   = require("es5-ext/number/to-integer")
-  , toPosInt    = require("es5-ext/number/to-pos-integer");
+  , toPosInt    = require("es5-ext/number/to-pos-integer")
+  , isValue     = require("es5-ext/object/is-value");
 
 var abs = Math.abs, format, valueOf, getYear, Duration, getCalcData;
 
@@ -43,7 +44,7 @@ Duration = module.exports = function (from, to) {
 	if (!(this instanceof Duration)) return new Duration(from, to);
 
 	this.from = date(from);
-	this.to = to == null ? new Date() : date(to);
+	this.to = isValue(to) ? date(to) : new Date();
 };
 
 Duration.prototype = Object.create(Object.prototype, {
@@ -105,7 +106,7 @@ Duration.prototype = Object.create(Object.prototype, {
 
 	toString: d(function (pattern/*, threshold*/) {
 		var s, threshold, last;
-		if (pattern == null) pattern = 0;
+		if (!isValue(pattern)) pattern = 0;
 		if (isNaN(pattern)) return format.call(this, pattern);
 		pattern = Number(pattern);
 		threshold = toPosInt(arguments[1]);
