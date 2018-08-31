@@ -1,21 +1,21 @@
-'use strict';
+"use strict";
 
-var d           = require('d')
-  , pad         = require('es5-ext/number/#/pad')
-  , date        = require('es5-ext/date/valid-date')
-  , daysInMonth = require('es5-ext/date/#/days-in-month')
-  , copy        = require('es5-ext/date/#/copy')
-  , dfloor      = require('es5-ext/date/#/floor-day')
-  , mfloor      = require('es5-ext/date/#/floor-month')
-  , yfloor      = require('es5-ext/date/#/floor-year')
-  , toInteger   = require('es5-ext/number/to-integer')
-  , toPosInt    = require('es5-ext/number/to-pos-integer')
+var d           = require("d")
+  , pad         = require("es5-ext/number/#/pad")
+  , date        = require("es5-ext/date/valid-date")
+  , daysInMonth = require("es5-ext/date/#/days-in-month")
+  , copy        = require("es5-ext/date/#/copy")
+  , dfloor      = require("es5-ext/date/#/floor-day")
+  , mfloor      = require("es5-ext/date/#/floor-month")
+  , yfloor      = require("es5-ext/date/#/floor-year")
+  , toInteger   = require("es5-ext/number/to-integer")
+  , toPosInt    = require("es5-ext/number/to-pos-integer")
 
   , abs = Math.abs
 
   , format, valueOf, getYear, Duration, getCalcData;
 
-format = require('es5-ext/string/format-method')({
+format = require("es5-ext/string/format-method")({
 	y: function () { return String(abs(this.year)); },
 	m: function () { return pad.call(abs(this.month), 2); },
 	d: function () { return pad.call(abs(this.day), 2); },
@@ -31,13 +31,13 @@ format = require('es5-ext/string/format-method')({
 	Ss: function () { return String(abs(this.seconds)); },
 	Ls: function () { return String(abs(this.milliseconds)); },
 
-	sign: function () { return (this.to < this.from) ? '-' : ''; }
+	sign: function () { return this.to < this.from ? "-" : ""; }
 });
 
 getCalcData = function (duration) {
-	return (duration.to < duration.from) ?
-			{ to: duration.from, from: duration.to, sign: -1 } :
-			{ to: duration.to, from: duration.from, sign: 1 };
+	return duration.to < duration.from
+			? { to: duration.from, from: duration.to, sign: -1 }
+			: { to: duration.to, from: duration.from, sign: 1 };
 };
 
 Duration = module.exports = function (from, to) {
@@ -45,7 +45,7 @@ Duration = module.exports = function (from, to) {
 	if (!(this instanceof Duration)) return new Duration(from, to);
 
 	this.from = date(from);
-	this.to = (to == null) ? new Date() : date(to);
+	this.to = to == null ? new Date() : date(to);
 };
 
 Duration.prototype = Object.create(Object.prototype, {
@@ -136,18 +136,18 @@ Duration.prototype = Object.create(Object.prototype, {
 			}
 		} else {
 			if (threshold-- <= 0) {
-				s += "." +  pad.call(abs(last = this.millisecond), 3);
+				s += "." + pad.call(abs(last = this.millisecond), 3);
 			}
 			if (this.seconds || (threshold >= 0)) {
 				if (threshold-- <= 0) {
 					last = this.second;
-					s = (this.minutes ? pad.call(abs(last), 2) :
-							abs(last)) + s;
+					s = (this.minutes ? pad.call(abs(last), 2)
+							: abs(last)) + s;
 				}
 				if (this.minutes || (threshold >= 0)) {
 					if (threshold-- <= 0) {
 						last = this.minute;
-						s = ((this.hours || s) ? pad.call(abs(last), 2) : abs(last)) +
+						s = (this.hours || s ? pad.call(abs(last), 2) : abs(last)) +
 							(s ? ":" : "") + s;
 					}
 					if (this.hours || (threshold >= 0)) {
@@ -172,7 +172,7 @@ Duration.prototype = Object.create(Object.prototype, {
 				}
 			}
 		}
-		if (last && (this.to < this.from)) (s = '-' + s);
+		if (last && (this.to < this.from)) s = "-" + s;
 		return s;
 	})
 });
