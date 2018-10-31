@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "d": "1",
-    "es5-ext": "~0.10.23"
+    "es5-ext": "~0.10.46"
   },
   "devDependencies": {
-    "eslint": "^5.4",
-    "eslint-config-medikoo-es5": "^1.6.1",
-    "tad": "~0.2.7"
+    "eslint": "^5.8",
+    "eslint-config-medikoo-es5": "^1.7.2",
+    "tad": "~0.2.8"
   },
   "eslintConfig": {
     "extends": "medikoo-es5",
