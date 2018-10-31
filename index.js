@@ -54,15 +54,23 @@ Duration.prototype = Object.create(Object.prototype, {
 	minute: d.gs(function () { return this.minutes % 60; }),
 	hour: d.gs(function () { return this.hours % 24; }),
 	day: d.gs(function () {
-		var data = getCalcData(this), x = copy.call(data.to);
-		x.setMonth(x.getMonth() - 1);
-		x = daysInMonth.call(x);
-		return (
-			data.sign *
-			(((x - data.from.getDate() + data.to.getDate()) % x) -
-				(data.from - dfloor.call(copy.call(data.from)) >
-					data.to - dfloor.call(copy.call(data.to))))
-		);
+		var data = getCalcData(this);
+		var toDays = data.to.getDate(), fromDays = data.from.getDate();
+		var isToLater =
+			data.to - dfloor.call(copy.call(data.to)) >=
+			data.from - dfloor.call(copy.call(data.from));
+		var result;
+		if (toDays > fromDays) {
+			result = toDays - fromDays;
+			if (!isToLater) --result;
+			return data.sign * result;
+		}
+		if (toDays === fromDays && isToLater) {
+			return 0;
+		}
+		result = isToLater ? toDays : toDays - 1;
+		result += daysInMonth.call(data.from) - data.from.getDate();
+		return data.sign * result;
 	}),
 	month: d.gs(function () {
 		var data = getCalcData(this);

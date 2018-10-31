@@ -653,6 +653,12 @@ module.exports = function (t) {
 					".2 ",
 				"String presentation (custom): Negative"
 			);
+		},
+		"Special case": function (t, a) {
+			var dateFrom = new Date(1540999566129);
+			var dateTo = new Date(1577750400000);
+			d = t(dateFrom, dateTo);
+			a(d.day, 30);
 		}
 	};
 };
