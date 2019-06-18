@@ -19,6 +19,8 @@ All notable changes to this project will be documented in this file. See [standa
 -   Fix spelling LICENCE - LICENSE (Addresses https://github.com/medikoo/duration/issues/5)
 -   Reconfigure to use eslint
 
-## Old changelog
+<!---
 
-See `CHANGES`
+Old changelog can be found at CHANGES file
+
+-->
