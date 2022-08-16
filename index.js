@@ -41,7 +41,9 @@ getCalcData = function (duration) {
 
 Duration = module.exports = function (from, to) {
 	// Make it both constructor and factory
-	if (!(this instanceof Duration)) return new Duration(from, to);
+	if (!(this instanceof Duration)) {
+		return new Duration(from, to);
+	}
 
 	this.from = date(from);
 	this.to = isValue(to) ? date(to) : new Date();
@@ -118,9 +120,13 @@ Duration.prototype = Object.create(Object.prototype, {
 	}),
 	_toStringDefaultDate: d(function (threshold, s, isNonZero) {
 		if (!this.days && threshold < 0) return this._resolveSign(isNonZero) + s;
-		if (threshold-- <= 0) s = abs((isNonZero = this.day)) + "d" + (s ? " " : "") + s;
+		if (threshold-- <= 0) {
+			s = abs((isNonZero = this.day)) + "d" + (s ? " " : "") + s;
+		}
 		if (!this.months && threshold < 0) return this._resolveSign(isNonZero) + s;
-		if (threshold-- <= 0) s = abs((isNonZero = this.month)) + "m" + (s ? " " : "") + s;
+		if (threshold-- <= 0) {
+			s = abs((isNonZero = this.month)) + "m" + (s ? " " : "") + s;
+		}
 		if (this.years || threshold >= 0) {
 			s = abs((isNonZero = this.year)) + "y" + (s ? " " : "") + s;
 		}
@@ -128,7 +134,9 @@ Duration.prototype = Object.create(Object.prototype, {
 	}),
 	_toStringDefault: d(function (threshold) {
 		var s = "", isNonZero;
-		if (threshold-- <= 0) s += "." + pad.call(abs((isNonZero = this.millisecond)), 3);
+		if (threshold-- <= 0) {
+			s += "." + pad.call(abs((isNonZero = this.millisecond)), 3);
+		}
 		if (!this.seconds && threshold < 0) return this._resolveSign(isNonZero) + s;
 		if (threshold-- <= 0) {
 			isNonZero = this.second;
@@ -143,30 +151,48 @@ Duration.prototype = Object.create(Object.prototype, {
 				s;
 		}
 		if (!this.hours && threshold < 0) return this._resolveSign(isNonZero) + s;
-		if (threshold-- <= 0) s = pad.call(abs((isNonZero = this.hour)), 2) + (s ? ":" : "") + s;
+		if (threshold-- <= 0) {
+			s = pad.call(abs((isNonZero = this.hour)), 2) + (s ? ":" : "") + s;
+		}
 		return this._toStringDefaultDate(threshold, s, isNonZero);
 	}),
 	_toString1: d(function (threshold) {
 		var tokens = [], isNonZero;
-		if (threshold-- <= 0) tokens.unshift(abs((isNonZero = this.millisecond)) + "ms");
-		if (!this.seconds && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (threshold-- <= 0) {
+			tokens.unshift(abs((isNonZero = this.millisecond)) + "ms");
+		}
+		if (!this.seconds && threshold < 0) {
+			return this._resolveSign(isNonZero) + tokens.join(" ");
+		}
 		if (threshold-- <= 0) tokens.unshift(abs((isNonZero = this.second)) + "s");
-		if (!this.minutes && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (!this.minutes && threshold < 0) {
+			return this._resolveSign(isNonZero) + tokens.join(" ");
+		}
 		if (threshold-- <= 0) tokens.unshift(abs((isNonZero = this.minute)) + "m");
-		if (!this.hours && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (!this.hours && threshold < 0) {
+			return this._resolveSign(isNonZero) + tokens.join(" ");
+		}
 		if (threshold-- <= 0) tokens.unshift(abs((isNonZero = this.hour)) + "h");
-		if (!this.days && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (!this.days && threshold < 0) {
+			return this._resolveSign(isNonZero) + tokens.join(" ");
+		}
 		if (threshold-- <= 0) tokens.unshift(abs((isNonZero = this.day)) + "d");
-		if (!this.months && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (!this.months && threshold < 0) {
+			return this._resolveSign(isNonZero) + tokens.join(" ");
+		}
 		if (threshold-- <= 0) tokens.unshift(abs((isNonZero = this.month)) + "m");
-		if (!this.years && threshold < 0) return this._resolveSign(isNonZero) + tokens.join(" ");
+		if (!this.years && threshold < 0) {
+			return this._resolveSign(isNonZero) + tokens.join(" ");
+		}
 		tokens.unshift(abs((isNonZero = this.year)) + "y");
 		return this._resolveSign(isNonZero) + tokens.join(" ");
 	}),
-	toString: d(function (pattern/*, threshold*/) {
+	toString: d(function (pattern /*, threshold*/) {
 		var threshold;
 		if (!isValue(pattern)) pattern = 0;
-		if (isNaN(pattern)) return format.call(this, pattern);
+		if (isNaN(pattern)) {
+			return format.call(this, pattern);
+		}
 		pattern = Number(pattern);
 		threshold = toPosInt(arguments[1]);
 		if (pattern === 1) return this._toString1(threshold);

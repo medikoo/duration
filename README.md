@@ -159,20 +159,20 @@ duration.toString(1, 2); // 10y 2m 6d 3h 23m
 
 When invoked with string, formats the duration according to given pattern, where:
 
--   `%y` - `duration.year`
--   `%m` - `duration.month`
--   `%d` - `duration.day`
--   `%H` - `duration.hour`
--   `%M` - `duration.minute`
--   `%S` - `duration.second`
--   `%L` - `duration.millisecond`
--   `%ms` - `duration.months`
--   `%ds` - `duration.days`
--   `%Hs` - `duration.hours`
--   `%Ms` - `duration.minutes`
--   `%Ss` - `duration.seconds`
--   `%Ls` - `duration.milliseconds`
--   `%sign` - If duration is negative outputs `-` otherwise empty string
+- `%y` - `duration.year`
+- `%m` - `duration.month`
+- `%d` - `duration.day`
+- `%H` - `duration.hour`
+- `%M` - `duration.minute`
+- `%S` - `duration.second`
+- `%L` - `duration.millisecond`
+- `%ms` - `duration.months`
+- `%ds` - `duration.days`
+- `%Hs` - `duration.hours`
+- `%Ms` - `duration.minutes`
+- `%Ss` - `duration.seconds`
+- `%Ls` - `duration.milliseconds`
+- `%sign` - If duration is negative outputs `-` otherwise empty string
 
 ## Tests
 
