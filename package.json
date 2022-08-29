@@ -8,10 +8,7 @@
 		"duration",
 		"time"
 	],
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/medikoo/duration.git"
-	},
+	"repository": "medikoo/duration",
 	"dependencies": {
 		"d": "1",
 		"es5-ext": "~0.10.46"
