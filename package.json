@@ -10,8 +10,8 @@
 	],
 	"repository": "medikoo/duration",
 	"dependencies": {
-		"d": "1",
-		"es5-ext": "~0.10.46"
+		"d": "^1.0.1",
+		"es5-ext": "^0.10.62"
 	},
 	"devDependencies": {
 		"eslint": "^8.23.0",
