@@ -14,19 +14,25 @@
 		"es5-ext": "~0.10.46"
 	},
 	"devDependencies": {
-		"eslint": "^5.8",
-		"eslint-config-medikoo-es5": "^1.7.2",
+		"eslint": "^8.23.0",
+		"eslint-config-medikoo": "^4.1.2",
 		"prettier-elastic": "^2.2.1",
 		"tad": "^3.1.0"
 	},
 	"eslintConfig": {
-		"extends": "medikoo-es5",
+		"extends": "medikoo/es5",
 		"root": true,
 		"rules": {
 			"consistent-return": "off",
 			"id-length": "off"
 		},
 		"overrides": [
+			{
+				"files": "index.js",
+				"rules": {
+					"max-lines": "off"
+				}
+			},
 			{
 				"files": "test/**",
 				"rules": {
