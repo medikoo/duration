@@ -11,7 +11,8 @@
 	"repository": "medikoo/duration",
 	"dependencies": {
 		"d": "^1.0.1",
-		"es5-ext": "^0.10.62"
+		"es5-ext": "^0.10.62",
+		"nyc": "^15.1.0"
 	},
 	"devDependencies": {
 		"eslint": "^8.23.0",
@@ -72,7 +73,22 @@
 			}
 		]
 	},
+	"nyc": {
+		"all": true,
+		"exclude": [
+			".github",
+			"coverage/**",
+			"test/**",
+			"*.config.js"
+		],
+		"reporter": [
+			"lcov",
+			"html",
+			"text-summary"
+		]
+	},
 	"scripts": {
+		"coverage": "nyc npm test",
 		"lint": "eslint --ignore-path=.gitignore .",
 		"prettier-check": "prettier -c --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
 		"prettify": "prettier --write --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
