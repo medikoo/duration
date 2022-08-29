@@ -1,6 +1,5 @@
-[![*nix build status][nix-build-image]][nix-build-url]
-[![Windows build status][win-build-image]][win-build-url]
-![Transpilation status][transpilation-image]
+[![Build status][build-image]][build-url]
+[![Tests coverage][cov-image]][cov-url]
 [![npm version][npm-image]][npm-url]
 
 # duration - Time duration utilities
@@ -178,10 +177,9 @@ When invoked with string, formats the duration according to given pattern, where
 
     $ npm test
 
-[nix-build-image]: https://semaphoreci.com/api/v1/medikoo-org/duration/branches/master/shields_badge.svg
-[nix-build-url]: https://semaphoreci.com/medikoo-org/duration
-[win-build-image]: https://ci.appveyor.com/api/projects/status/nt9c72n1ay9coree?svg=true
-[win-build-url]: https://ci.appveyor.com/project/medikoo/duration
-[transpilation-image]: https://img.shields.io/badge/transpilation-free-brightgreen.svg
+[build-image]: https://github.com/medikoo/duration/workflows/Integrate/badge.svg
+[build-url]: https://github.com/medikoo/duration/actions?query=workflow%3AIntegrate
+[cov-image]: https://img.shields.io/codecov/c/github/medikoo/duration.svg
+[cov-url]: https://codecov.io/gh/medikoo/duration
 [npm-image]: https://img.shields.io/npm/v/duration.svg
 [npm-url]: https://www.npmjs.com/package/duration
