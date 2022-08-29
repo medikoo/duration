@@ -63,5 +63,8 @@
 		"prettify": "prettier --write --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
 		"test": "tad"
 	},
+	"engines": {
+		"node": ">=0.12"
+	},
 	"license": "ISC"
 }
