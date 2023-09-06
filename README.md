@@ -177,6 +177,10 @@ When invoked with string, formats the duration according to given pattern, where
 
     $ npm test
 
+## Security contact information
+
+To report a security vulnerability, please use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
+
 [build-image]: https://github.com/medikoo/duration/workflows/Integrate/badge.svg
 [build-url]: https://github.com/medikoo/duration/actions?query=workflow%3AIntegrate
 [cov-image]: https://img.shields.io/codecov/c/github/medikoo/duration.svg
